@@ -141,7 +141,7 @@ can instead set the environment variables `USERID` and `GROUPID` to the
 values of the owner of your files.
 
 * High memory usage by samba. Multiple people have reported high memory usage
-that's never freed by the samba processes. Recommended work around below:
+that is never freed by the samba processes. Recommended work around below:
 
 Add the `-m 512m` option to docker run command, or `mem_limit:` in
 docker_compose.yml files, IE:
@@ -150,11 +150,11 @@ docker_compose.yml files, IE:
                 -v /path/to/directory:/mount \
                 -d dperson/samba -p
 
-* Attempting to connect with the `smbclient` commandline tool. By default samba
-still tries to use SMB1, which is depriciated and has security issues. This
-container defaults to SMB2, which for no decernable reason even though it's
-supported is disabled by default so run the command as `smbclient -m SMB3`, then
-any other options you would specify.
+* Attempting to connect with the `smbclient` commandline tool. Samba still tries
+to use SMB1 by default, which is deprecated and has security issues. This
+container defaults to SMB2, which for no discernable reason is disabled by default 
+(even though it is supported). Run the command as `smbclient -m SMB3`, then any 
+other options you wish to specify.
 
 ## Issues
 
